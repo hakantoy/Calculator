@@ -62,11 +62,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func divideClicked(_ sender: Any) {
-        if let  firstNumber = Int(FirsText.text!) {
-            if let secondNumber = Int(SeconText.text!) {
-                
+        if let  firstNumber = Double(FirsText.text!) {
+            if let secondNumber = Double(SeconText.text!),
+            secondNumber != 0 {                
                 let result = firstNumber / secondNumber
                 ResultLabel.text = String(result)
+            } else {
+                if firstNumber == 0 {
+                    ResultLabel.text = "Tanımsız"
+                } else {
+                    ResultLabel.text = "Sonsuz"
+                }
             }
         }
     }
